@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormControl} from "react-bootstrap/cjs";
-import {InputGroup} from "react-bootstrap";
-import Button from "react-bootstrap/cjs/Button";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FormControl} from 'react-bootstrap/cjs';
+import {InputGroup} from 'react-bootstrap';
+import Button from 'react-bootstrap/cjs/Button';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 interface Props {
 	width?: number,

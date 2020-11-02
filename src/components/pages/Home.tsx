@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/cjs/Container';
 import {SearchBox} from '../common/SearchBox';
 import * as WeatherApi from '../../services/weatherApi';
 import {WeatherResponse} from '../../services/weatherApi';
-import * as WeatherParser from "../../services/weatherParser";
-import {Card} from "react-bootstrap";
+import * as WeatherParser from '../../services/weatherParser';
+import {Card} from 'react-bootstrap';
 
 export function Home() {
 	const [searchQuery, setSearchQuery] = useState('');

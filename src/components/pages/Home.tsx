@@ -30,14 +30,14 @@ export function Home() {
 			<Row className="mt-3 justify-content-center">
 				<SearchBox searchQuery={searchQuery} onChange={value => handleSearchChanged(value)}
 						   onSubmit={handleSearchClicked}
-						   placeholder="Search location..." width={50}/>
+						   placeholder="Search location..." width={50} />
 			</Row>
 			{weatherInfo && (<Row className="mt-3 justify-content-center">
 				<Card className="mt-3 text-center" style={{width: '18rem'}}>
 					<Card.Body>
 						<Card.Title>Today</Card.Title>
 						<Card.Subtitle>{WeatherParser.getReadableTime(weatherInfo)}</Card.Subtitle>
-						<img src={WeatherParser.getIcon(weatherInfo)}/>
+						<img src={WeatherParser.getIcon(weatherInfo)} />
 						<Card.Title>{weatherInfo.temp} °C</Card.Title>
 						<Card.Text>{weatherInfo.text}</Card.Text>
 					</Card.Body>

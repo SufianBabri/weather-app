@@ -11,7 +11,7 @@ export function parse(obj: any): WeatherInfo {
 		text: obj.weather[0].main,
 		icon: obj.weather[0].icon,
 		unixTime: obj.dt
-	}
+	};
 }
 
 export function getReadableTime(weatherInfo: WeatherInfo) {

@@ -34,11 +34,11 @@ export function SearchBox({width, searchQuery, onChange, onSubmit, ...rest}: Pro
 						 {...rest}
 						 value={searchQuery}
 						 onKeyPress={onkeyup}
-						 onChange={(e) => onChange(e.currentTarget.value)}/>
+						 onChange={(e) => onChange(e.currentTarget.value)} />
 			<InputGroup.Append>
 				<Button variant="light ml-1" onClick={() => onSubmit()}>
 					<FontAwesomeIcon
-						icon="search"/>
+						icon="search" />
 				</Button>
 			</InputGroup.Append>
 		</InputGroup>

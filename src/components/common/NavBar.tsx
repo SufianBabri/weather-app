@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/cjs/Nav';
 import {LinkContainer} from 'react-router-bootstrap';
 
 function NavBar() {
-	const appName = process.env.REACT_APP_NAME
+	const appName = process.env.REACT_APP_NAME;
 	return (
 		<Navbar bg="dark" variant="dark">
 			<Navbar.Brand>{appName}</Navbar.Brand>

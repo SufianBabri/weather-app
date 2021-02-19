@@ -1,7 +1,7 @@
 import httpService from './httpService';
 import * as WeatherParser from './weatherParser';
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const endpoint = (city: string) => `weather?q=${city}&units=metric&appid=${apiKey}`;
 
 export interface WeatherResponse {

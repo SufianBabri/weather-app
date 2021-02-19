@@ -2,13 +2,13 @@ import * as React from 'react';
 import {useState} from 'react';
 import Row from 'react-bootstrap/cjs/Row';
 import Container from 'react-bootstrap/cjs/Container';
-import {SearchBox} from '../common/SearchBox';
-import * as WeatherApi from '../../services/weatherApi';
-import {WeatherResponse} from '../../services/weatherApi';
-import * as WeatherParser from '../../services/weatherParser';
+import {SearchBox} from '../components/common/SearchBox';
+import * as WeatherApi from '../services/weatherApi';
+import {WeatherResponse} from '../services/weatherApi';
+import * as WeatherParser from '../services/weatherParser';
 import {Card} from 'react-bootstrap';
 
-export function Home() {
+export default function Index() {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [weatherResponse, setWeatherResponse] = useState<WeatherResponse | undefined>(undefined);
 

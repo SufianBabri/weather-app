@@ -3,27 +3,28 @@ import {useState} from 'react';
 import Row from 'react-bootstrap/cjs/Row';
 import Container from 'react-bootstrap/cjs/Container';
 import {SearchBox} from '../components/common/SearchBox';
-import * as WeatherApi from '../services/weatherApi';
-import {WeatherResponse} from '../services/weatherApi';
-import * as WeatherParser from '../services/weatherParser';
-import {Card} from 'react-bootstrap';
+import * as api from '../data/api';
+import {ApiResponse} from '../data/api';
+import LoadingUi from '../components/common/LoadingUi';
+import WeatherDetails from '../components/common/WeatherDetails';
+import ApiErrorUi from '../components/common/ApiErrorUi';
 
 export default function HomePage() {
 	const [searchQuery, setSearchQuery] = useState('');
-	const [weatherResponse, setWeatherResponse] = useState<WeatherResponse | undefined>(undefined);
+	const [apiResponse, setApiResponse] = useState<ApiResponse>({status: 'idle'});
 
 	function handleSearchChanged(query: string) {
 		setSearchQuery(query);
 	}
 
 	async function handleSearchClicked() {
-		setWeatherResponse(undefined);
-		const weatherInfo = await WeatherApi.fetchWeatherForCity(searchQuery);
-		setWeatherResponse(weatherInfo);
+		setApiResponse({status: 'loading'});
+		const response = await api.fetchWeather(searchQuery);
+		setApiResponse(response);
 	}
 
-	const weatherInfo = weatherResponse?.weatherInfo;
-	const failureInfo = weatherResponse?.failureInfo;
+	const weatherInfo = apiResponse.data;
+	const message = apiResponse.message;
 
 	return (
 		<Container className="my-3 align-content-center">
@@ -32,19 +33,9 @@ export default function HomePage() {
 						   onSubmit={handleSearchClicked}
 						   placeholder="Search location..." width={50} />
 			</Row>
-			{weatherInfo && (<Row className="mt-3 justify-content-center">
-				<Card className="mt-3 text-center" style={{width: '18rem'}}>
-					<Card.Body>
-						<Card.Title>Today</Card.Title>
-						<Card.Subtitle>{WeatherParser.getReadableTime(weatherInfo)}</Card.Subtitle>
-						<img src={WeatherParser.getIcon(weatherInfo)} />
-						<Card.Title>{weatherInfo.temp} °C</Card.Title>
-						<Card.Text>{weatherInfo.text}</Card.Text>
-					</Card.Body>
-				</Card>
-			</Row>)}
-			{failureInfo && (<Row className="mt-3 justify-content-center text-danger font-weight-bold">Request
-				failed: {failureInfo.message}</Row>)}
+			{apiResponse.status === 'success' && weatherInfo && <WeatherDetails weatherInfo={weatherInfo} />}
+			{apiResponse.status === 'error' && message && <ApiErrorUi errorMessage={message} />}
+			{apiResponse.status === 'loading' && <LoadingUi />}
 		</Container>
 	);
 }

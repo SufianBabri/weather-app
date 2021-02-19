@@ -8,7 +8,7 @@ import {WeatherResponse} from '../services/weatherApi';
 import * as WeatherParser from '../services/weatherParser';
 import {Card} from 'react-bootstrap';
 
-export default function Index() {
+export default function HomePage() {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [weatherResponse, setWeatherResponse] = useState<WeatherResponse | undefined>(undefined);
 

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/cjs/Col';
 import Card from 'react-bootstrap/Card';
 import packageJson from '../package.json';
 
-export default function About() {
+export default function AboutPage() {
 	const appName = process.env.NEXT_PUBLIC_NAME;
 	const appVersion = packageJson.version;
 	return (

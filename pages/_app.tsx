@@ -7,20 +7,12 @@ import {far} from '@fortawesome/free-regular-svg-icons';
 import 'bootstrap/dist/css/bootstrap.css';
 import NavBar from '../components/common/NavBar';
 
-function App({Component, pageProps}: AppProps) {
+export default function App({Component, pageProps}: AppProps) {
 	library.add(fab, fas, far);
 	return (
 		<React.Fragment>
 			<NavBar />
 			<Component {...pageProps} />
-			{/*<Switch>*/}
-			{/*	<Route path="/home" component={Index} />*/}
-			{/*	<Route path="/about" component={About} />*/}
-			{/*	<Redirect from="/" to="/home" />*/}
-			{/*	<Redirect to="/not-found" />*/}
-			{/*</Switch>*/}
 		</React.Fragment>
 	);
 }
-
-export default App;

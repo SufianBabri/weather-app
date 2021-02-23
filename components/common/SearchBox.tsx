@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { FormControl } from 'react-bootstrap/cjs';
-import { InputGroup } from 'react-bootstrap';
+import {FormControl} from 'react-bootstrap/cjs';
+import {InputGroup} from 'react-bootstrap';
 import Button from 'react-bootstrap/cjs/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 interface Props {
 	width?: number;
@@ -12,14 +11,6 @@ interface Props {
 	onChange: (value: string) => void;
 	onSubmit: () => void;
 }
-
-SearchBox.propTypes = {
-	width: PropTypes.number,
-	placeholder: PropTypes.string,
-	searchQuery: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	onSubmit: PropTypes.func.isRequired,
-};
 
 export function SearchBox({
 	width,

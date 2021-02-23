@@ -19,5 +19,5 @@ export function getReadableTime(weatherInfo: WeatherInfo) {
 }
 
 export function getIcon(weatherInfo: WeatherInfo) {
-	return `http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
+	return `https://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
 }

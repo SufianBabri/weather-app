@@ -5,12 +5,12 @@ export interface WeatherInfo {
 	unixTime: number
 }
 
-export function parse(obj: any): WeatherInfo {
+export function parseResponse(data: any): WeatherInfo {
 	return {
-		temp: obj.main.temp,
-		text: obj.weather[0].main,
-		icon: obj.weather[0].icon,
-		unixTime: obj.dt
+		temp: data.main.temp,
+		text: data.weather[0].main,
+		icon: data.weather[0].icon,
+		unixTime: data.dt
 	};
 }
 

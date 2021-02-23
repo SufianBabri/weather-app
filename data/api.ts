@@ -1,5 +1,4 @@
-import * as WeatherParser from '../services/weatherParser';
-import {WeatherInfo} from '../services/weatherParser';
+import {parse as parseWeatherResponse, WeatherInfo} from './models/weatherInfo';
 
 const BASE_API_URL = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -19,7 +18,7 @@ export async function fetchWeather(city: string): Promise<ApiResponse> {
 
 		if (!response.ok) return {status: 'error', message: data.message};
 
-		return {status: 'success', data: WeatherParser.parse(data)};
+		return {status: 'success', data: parseWeatherResponse(data)};
 	} catch (e) {
 		console.error('Error occurred while making API request', e);
 

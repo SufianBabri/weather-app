@@ -1,7 +1,6 @@
 import React from 'react';
 import {Card} from 'react-bootstrap';
-import * as WeatherParser from '../../services/weatherParser';
-import {WeatherInfo} from '../../services/weatherParser';
+import {getIcon, getReadableTime, WeatherInfo} from '../../data/models/weatherInfo';
 import Row from 'react-bootstrap/cjs/Row';
 
 interface Props {
@@ -14,8 +13,8 @@ export default function WeatherDetails({weatherInfo}: Props) {
 			<Card className="mt-3 text-center" style={{width: '18rem'}}>
 				<Card.Body>
 					<Card.Title>Today</Card.Title>
-					<Card.Subtitle>{WeatherParser.getReadableTime(weatherInfo)}</Card.Subtitle>
-					<img src={WeatherParser.getIcon(weatherInfo)} />
+					<Card.Subtitle>{getReadableTime(weatherInfo)}</Card.Subtitle>
+					<img src={getIcon(weatherInfo)} />
 					<Card.Title>{weatherInfo.temp} °C</Card.Title>
 					<Card.Text>{weatherInfo.text}</Card.Text>
 				</Card.Body>

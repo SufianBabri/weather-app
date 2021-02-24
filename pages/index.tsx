@@ -1,12 +1,11 @@
-import * as React from 'react';
 import {useState} from 'react';
 import Row from 'react-bootstrap/cjs/Row';
 import Container from 'react-bootstrap/cjs/Container';
-import {SearchBox} from '../components/common/SearchBox';
+import {SearchBox} from '../components/SearchBox';
 import {ApiResponse, fetchWeather} from '../data/api';
-import LoadingUi from '../components/common/LoadingUi';
-import WeatherDetailsUi from '../components/common/WeatherDetailsUi';
-import ApiErrorUi from '../components/common/ApiErrorUi';
+import LoadingUi from '../components/LoadingUi';
+import WeatherDetailsUi from '../components/WeatherDetailsUi';
+import ApiErrorUi from '../components/ApiErrorUi';
 
 export default function HomePage() {
 	const [searchQuery, setSearchQuery] = useState('');

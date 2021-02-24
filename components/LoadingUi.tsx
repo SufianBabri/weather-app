@@ -1,5 +1,5 @@
-import React from 'react';
-import {Row, Spinner} from 'react-bootstrap';
+import Row from 'react-bootstrap/cjs/Row';
+import Spinner from 'react-bootstrap/cjs/Spinner';
 
 export default function LoadingUi() {
 	return (

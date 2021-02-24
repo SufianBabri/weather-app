@@ -18,6 +18,6 @@ export function getReadableTime(weatherInfo: WeatherInfo) {
 	return new Date(weatherInfo.unixTime * 1000).toLocaleTimeString();
 }
 
-export function getIcon(weatherInfo: WeatherInfo) {
+export function getIconUrl(weatherInfo: WeatherInfo) {
 	return `https://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
 }

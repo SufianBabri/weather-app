@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {Card} from 'react-bootstrap';
 import {getIcon, getReadableTime, WeatherInfo} from '../../data/models/weatherInfo';
 import Row from 'react-bootstrap/cjs/Row';
@@ -14,7 +15,7 @@ export default function WeatherDetails({weatherInfo}: Props) {
 				<Card.Body>
 					<Card.Title>Today</Card.Title>
 					<Card.Subtitle>{getReadableTime(weatherInfo)}</Card.Subtitle>
-					<img src={getIcon(weatherInfo)} />
+					<Image src={getIcon(weatherInfo)} width={100} height={100} />
 					<Card.Title>{weatherInfo.temp} °C</Card.Title>
 					<Card.Text>{weatherInfo.text}</Card.Text>
 				</Card.Body>

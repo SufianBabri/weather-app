@@ -8,7 +8,7 @@ interface Props {
 	weatherInfo: WeatherInfo;
 }
 
-export default function WeatherDetails({weatherInfo}: Props) {
+export default function WeatherDetailsUi({weatherInfo}: Props) {
 	return (
 		<Row className="mt-3 justify-content-center">
 			<Card className="mt-3 text-center" style={{width: '18rem'}}>

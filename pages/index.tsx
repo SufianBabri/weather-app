@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/cjs/Container';
 import {SearchBox} from '../components/common/SearchBox';
 import {ApiResponse, fetchWeather} from '../data/api';
 import LoadingUi from '../components/common/LoadingUi';
-import WeatherDetails from '../components/common/WeatherDetails';
+import WeatherDetailsUi from '../components/common/WeatherDetailsUi';
 import ApiErrorUi from '../components/common/ApiErrorUi';
 
 export default function HomePage() {
@@ -28,9 +28,9 @@ export default function HomePage() {
 			<Row className="mt-3 justify-content-center">
 				<SearchBox searchQuery={searchQuery} onChange={value => handleSearchChanged(value)}
 						   onSubmit={handleSearchClicked}
-						   placeholder="Search location..." width={50} />
+						   placeholder="Search for a city..." />
 			</Row>
-			{apiResponse.status === 'success' && weatherInfo && <WeatherDetails weatherInfo={weatherInfo} />}
+			{apiResponse.status === 'success' && weatherInfo && <WeatherDetailsUi weatherInfo={weatherInfo} />}
 			{apiResponse.status === 'error' && message && <ApiErrorUi errorMessage={message} />}
 			{apiResponse.status === 'loading' && <LoadingUi />}
 		</Container>

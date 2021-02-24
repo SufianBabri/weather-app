@@ -1,11 +1,10 @@
 import React from 'react';
-import {FormControl} from 'react-bootstrap/cjs';
-import {InputGroup} from 'react-bootstrap';
+import FormControl from 'react-bootstrap/cjs/FormControl';
+import InputGroup from 'react-bootstrap/cjs/InputGroup';
 import Button from 'react-bootstrap/cjs/Button';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 interface Props {
-	width?: number;
 	placeholder?: string;
 	searchQuery: string;
 	onChange: (value: string) => void;
@@ -13,25 +12,22 @@ interface Props {
 }
 
 export function SearchBox({
-	width,
-	searchQuery,
-	onChange,
-	onSubmit,
-	...rest
-}: Props) {
-	function onkeyup(event: any) {
-		if (event.key === 'Enter') {
-			onSubmit();
-		}
-	}
+							  placeholder,
+							  searchQuery,
+							  onChange,
+							  onSubmit
+						  }: Props) {
+
+	const onKeyPress = (event: React.KeyboardEvent) => {
+		if (event.key === 'Enter') onSubmit();
+	};
 
 	return (
-		<InputGroup className={`w-${width}`}>
+		<InputGroup className={`w-auto`}>
 			<FormControl
-				as="input"
-				{...rest}
+				placeholder={placeholder}
 				value={searchQuery}
-				onKeyPress={onkeyup}
+				onKeyPress={onKeyPress}
 				onChange={(e) => onChange(e.currentTarget.value)}
 			/>
 			<InputGroup.Append>

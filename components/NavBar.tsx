@@ -7,7 +7,13 @@ export default function NavBar() {
 
 	return (
 		<Navbar bg="dark" variant="dark">
-			<Navbar.Brand>{appName}</Navbar.Brand>
+			<Navbar.Brand>
+				<img src="/logo-white.svg"
+					 alt="logo"
+					 width={30}
+					 height={30}
+					 className="d-inline-block align-top" />{' '}
+				{appName}</Navbar.Brand>
 			<Nav className="mr-auto">
 				<Link href="/" passHref>
 					<Nav.Link>
